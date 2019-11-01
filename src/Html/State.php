@@ -82,8 +82,9 @@ class State
     
     // Highlight color:
     } elseif (isset($this->hcolor)) {       
-      if (isset(self::$highlight[$this->hcolor]))
-        $style .= "background-color:" . self::$highlight[$this->hcolor] . ";";
+      // Check if color is set. in particular when it's the 'auto' color
+      if (self::$colortbl[$this->hcolor])
+        $style .= "background-color:" . self::$colortbl[$this->hcolor] . ";";
     }
     
     return $style;
